@@ -1,0 +1,51 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build output
+dist/
+build/
+coverage/
+
+# Jest cache & reports
+.jest/
+jest-cache/
+jest-html-reporters-attach/
+*.log
+
+# Allure reports
+allure-results/
+allure-report/
+allure-history/
+
+# TypeScript
+*.tsbuildinfo
+
+# VSCode / JetBrains configs
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary archives / backups
+*.zip
+*.tgz
+*.bak
+*.tmp
+*.swp
+
+# Mac system files
+.AppleDouble
+.LSOverride
+Icon?
