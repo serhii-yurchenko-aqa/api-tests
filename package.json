@@ -10,8 +10,9 @@
     "allure:serve": "allure serve allure-results",
     "types:gen": "openapi-typescript https://petstore3.swagger.io/api/v3/openapi.json -o src/api/models/index.ts",
     "ai:gen": "MODEL=mistral TS_NODE_TRANSPILE_ONLY=1 node --loader ts-node/esm src/api/scripts/ai-testgen.ts",
-    "ai:gen:smoke": "AI_MODE=smoke MODEL=mistral OLLAMA_SKIP_WARMUP=1 AI_TOTAL_TIMEOUT_MS=60000 TS_NODE_TRANSPILE_ONLY=1 node --loader ts-node/esm src/api/scripts/ai-testgen.ts",
-    "ai:gen:smoke:inc": "AI_INCREMENTAL=1 AI_MODE=smoke MODEL=mistral OLLAMA_SKIP_WARMUP=1 AI_TOTAL_TIMEOUT_MS=60000 TS_NODE_TRANSPILE_ONLY=1 node --loader ts-node/esm src/api/scripts/ai-testgen.ts"
+    "ai:gen:smoke": "AI_SKIP_MODEL=1 AI_INCREMENTAL=1 AI_MODE=smoke TS_NODE_TRANSPILE_ONLY=1 node --loader ts-node/esm src/api/scripts/ai-testgen.ts",
+    "ai:gen:smoke:inc": "AI_SKIP_MODEL=1 AI_INCREMENTAL=1 AI_MODE=smoke TS_NODE_TRANSPILE_ONLY=1 node --loader ts-node/esm src/api/scripts/ai-testgen.ts",
+    "ai:gen:smoke:real": "AI_INCREMENTAL=1 AI_MODE=smoke MODEL=mistral OLLAMA_SKIP_WARMUP=1 AI_TOTAL_TIMEOUT_MS=90000 TS_NODE_TRANSPILE_ONLY=1 node --loader ts-node/esm src/api/scripts/ai-testgen.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

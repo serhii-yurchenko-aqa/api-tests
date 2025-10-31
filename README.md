@@ -137,17 +137,11 @@ ollama pull mistral
 From the project root (with Ollama running):
 
 ```bash
-# Full generation attempt (tries to create multiple new API tests)
-npm run ai:gen
+# Fast reliable smoke test generation
+npm run ai:gen:smoke:inc      # Template-based, completes in 2 seconds, always works
 
-# Smoke generation (focus on pet status scenarios; auto-fallback to stub if model unresponsive)
-npm run ai:gen:smoke
-
-# Forced stub (immediately writes predictable stub tests without calling the model)
-npm run ai:gen:smoke:stub
-
-# Forced stub for full mode
-npm run ai:gen:stub
+# Experimental: Real AI generation (often broken)
+npm run ai:gen:smoke:real     # Ollama/Mistral model - slow, unreliable, wrong patterns
 ```
 
 ### Optional Environment Flags
@@ -182,7 +176,9 @@ ollama pull mistral         # Pull model (run once)
 
 cd path/to/project          # Terminal 2
 npm install                 # Install dependencies
-npm run ai:gen:smoke        # Generate smoke tests (or stub fallback)
+npm run ai:gen:smoke:inc    # Generate smoke tests (fast, reliable)
+# OR for actual AI generation (slow, may fail):
+# npm run ai:gen:smoke:real
 npm test                    # Execute all tests including generated ones
 ```
 
